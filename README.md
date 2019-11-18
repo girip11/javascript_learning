@@ -1,2 +1,3 @@
-# javascript_learning
+# Javascript
+
 Notes on Javascript programming

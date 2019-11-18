@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Mithril Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="author" content="Girish">
+  <meta name="description" content="Learning to code using MithrilJS framework">
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css"> -->
+</head>
+
+<body>
+
+  <!-- <script src="https://unpkg.com/mithril@next/mithril.js"></script> -->
+  <script src="https://unpkg.com/mithril@2.0.0-rc.6/mithril.js"></script>
+  <!-- <script src="mithril_hello_world.js"></script> -->
+  <script>
+    var contentRoot = document.body;
+    m.render(contentRoot, m("button", {
+      onclick: trackClicks
+    }, "click me"));
+
+    function trackClicks() {
+      //var countValue = getClicksCount(1);
+      //console.log("Count" + countValue);
+
+      m.request({
+        method: "PUT",
+        url: "https://rem-rest-api.herokuapp.com/api/tutors/1",
+        data: {
+          count: 1
+        },
+        withCredentials: true,
+      }).then(function (data) {
+        console.log(data);
+        //document.getElementById("para").innerHTML = "Click count is:" + data.count;
+      })
+    }
+  </script>
+  <!-- <script>
+        var contentRoot = document.body;
+        var count = 0;
+        //m.render(contentRoot, "Hello world");
+        //m.render(contentRoot, "My first mithril app");
+        var heading = m("h1", {
+            id: "heading",
+            "class": "heading",
+            "data-content": "heallo"
+        }, "My first app");
+        var para = m("para", {
+            id: "counter"
+        }, "Paragraph");
+        var button = m("button", {
+            onclick: function onclick() {
+                count++;
+                this.innerHTML = count;
+            }
+        }, "Click me!");
+        m.render(contentRoot, [heading, para, button]);
+    </script> -->
+</body>
+
+</html>
