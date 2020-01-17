@@ -1,6 +1,6 @@
-# classes
+# Classes
 
-Classes was introduced in ES6. Syntactic sugar over prototypical based inheritance.
+Classes was introduced in ES6. Syntactic sugar over prototypical inheritance.
 
 ## Class declaration
 
@@ -53,9 +53,9 @@ console.log(AnotherPerson.name);
 
 ## Class methods
 
-Class body us executed in **strict mode**.
+Class body is executed in **strict mode**.
 
-* Only once method named **constructor** can be used inside a class.
+* Only one method named **constructor** can be used inside a class.
 
 * **super** keyword to call the constructor of the parent class.
 
@@ -96,6 +96,36 @@ console.log(Person.greetingMessage(person.fullName));
 // console.log(person.greetingMessage());
 ```
 
+## Class properties aka static properties
+
+* Static properties got introduced as part of ES7(ES2016). We need transpiler like **Babel** to use this feature.
+
+```javascript
+class Person {
+  static count = 0;
+
+  constructor(name, gender, age) {
+    this._name = name;
+    this.gender = gender;
+    this.age = age;
+
+    Person.personCount();
+  }
+
+  get name() {
+    this._name;
+  }
+
+  greeting() {
+    return `My name is ${this._name}.I am ${this.age} `;
+  }
+
+  static personCount() {
+      Person.count++;
+  }
+}
+```
+
 ## Boxing inside prototype and static methods
 
 Code inside classes always execute in strict mode. So autoboxing never happens. When a static or prototype method returns **this**, the value is always **undefined**. In prototype based implementation, **this** will be set to the global object in **non-strict mode**.
@@ -122,7 +152,7 @@ console.log(new Person('John', 'Doe', 25, 'male').currentInstance());
 ## Instance properties and class properties
 
 * Instance properties - defined inside class body.
-* class level properties - defined outside class body.
+* class level properties - defined outside class body or inside the static functions.
 
 ```Javascript
 class Person {
@@ -130,12 +160,21 @@ class Person {
     // instance level properties.
     this.firstName = firstName;
     this.lastName = lastName;
+    Person.personCount();
   }
 
+  static personCount() {
+    if (!Person.count) {
+      // class variables declared inside the static method
+      Person.count = 1;
+    } else {
+      Person.count++;
+    }
+  }
 }
 
 // class level property defined outside class
-Person.count = 0;
+Person.active = 0;
 ```
 
 ## Convention: Marking the fields as private through underscore
@@ -163,7 +202,7 @@ class Person {
 
 ## Public and private field declarations
 
-**NOTE**: Private and public field declarations are an experimental feature as of now. But can be used with transpiling tools like **Babel**.
+**NOTE**: Private and public field declarations are an experimental feature as of now. But can be used with transpiling tools like [**Babel 7** with stage 3 presets](https://babeljs.io/en/repl).
 
 **NOTE**: Private fields should always be declared upfront
 
@@ -173,68 +212,16 @@ class Person {
   #firstName = '';
   #lastName = '';
 
-  // public field
-  fullName = '';
   constructor(firstName, lastName) {
     // instance level properties.
     this.#firstName = firstName;
     this.#lastName = lastName;
-    this.fullName = `${firstName} ${lastName}`;
   }
 
-}
-```
-
-## Subclassing with extends
-
-Classes can extend from traditional function based (constructor function) classes.
-
-```Javascript
-function Person(name, age, gender) {
-  this.name = name;
-  this.age = age;
-  this.gender = gender;
-}
-
-Person.prototype.greeting = function() {
-  return `Hi, I am ${this.name}`;
-}
-
-class Teacher extends Person {
-  constructor(name, age, gender, subject) {
-    super(name, age, gender);
-    this.subject = subject;
-  }
-
-  greeting() {
-    return `Hi, I am ${this.name}. I teach ${this.subject}`;
+  get fullName() {
+    return `${this.#firstName} ${this.#lastName}`;
   }
 }
-```
-
-Classes cannot extend regular objects. To make the class extend from regular objects, we need to set the child class's prototype to the object using `Object.setPrototypeOf`.
-
-```Javascript
-const Person = {
-  greeting: function() {
-    return `Hi I am ${this.name}`;
-  }
-};
-
-class Teacher {
-  constructor(name, age, gender, subject) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
-    this.subject = subject;
-  }
-
-}
-
-Object.setPrototypeOf(Teacher.prototype, Person);
-
-let t = new Teacher('John', 30, 'Male', 'Science');
-console.log(t.greeting());
 ```
 
 ---

@@ -23,6 +23,8 @@ companyName.toUpperCase();
 
 // replace
 companyName.replace("Motor", "");
+
+console.log(`company name: ${company_name}`)
 ```
 
 ---
@@ -30,3 +32,5 @@ companyName.replace("Motor", "");
 ## References
 
 * [Useful String Methods in javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods)
+
+* [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)

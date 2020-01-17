@@ -25,17 +25,17 @@ btn.onclick = newButtonClickHandler;
 
 Commonly used event handling properties on `<button>`  element are
 
-* onfocus
-* onblur
-* ondblclick
-* onmouseover
-* onmouseout
+* `onfocus`
+* `onblur`
+* `ondblclick`
+* `onmouseover`
+* `onmouseout`
 
 Keyboard key press related event handler properties
 
-* window.onkeypress
-* window.onkeydown
-* window.onkeyup
+* `window.onkeypress`
+* `window.onkeydown`
+* `window.onkeyup`
 
 ## 2. Inline events handlers
 
@@ -52,7 +52,7 @@ function onButtonClick() {
 
 ## 3. Using `addEventListener()` and `removeEventListener()`
 
-Has a way to cleanup unused event handlers using the `removeEventListener()` method. Multiple event handler for the same event can be added.
+Has a way to cleanup unused event handlers using the `removeEventListener()` method. Multiple event handlers for the same event can be added.
 
 ```Javascript
 // onclick is an event handler property.
@@ -69,7 +69,7 @@ const btn = document.querySelector(".submit-btn");
 // first parameter is the event to handle and the next parameter is the event handler itself.
 btn.addEventListener('click', onButtonClick);
 
-// On evenry button click , these two event handlers will be invoked.
+// On every button click , these two event handlers will be invoked.
 btn.addEventListener('click', newButtonClickHandler);
 ```
 
@@ -94,13 +94,13 @@ btn.addEventListener('click', onButtonClick);
 
 ## Preventing default behavior
 
-Example in form, when clicked on its **submit** button, event handler can be set to handle the **onsubmit** event. Inside the event handler, on the event object invoking **preventDefault()** method prevents the form from being submitted. Helps in cases where form fields don't pass the custom validation logic.
+Example in a HTML form, when clicked on its **submit** button, event handler can be set to handle the **onsubmit** event. Inside the event handler, on the event object invoking **preventDefault()** method prevents the form from being submitted. Helps in cases where form fields don't satisfy the custom validation logic.
 
 ## Event bubbling and capture
 
-Behavior when two event handlers of same event activated on single element.
+* Behavior when two event handlers of same event activated on single element.
 
-Event fired on element that has parent elements, browsers can run two different phases
+* Event fired on element that has parent elements, browsers can run two different phases
 
 * **capturing phase** (top down) - Event handling starts from target element's(element on which the event occurred) outer most ancestor element and moves down to the target element. **Event handlers are invoked only on those elements registered for that event in the hierarchy.**
 

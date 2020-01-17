@@ -7,7 +7,7 @@ let str = "Hello world"
 let anotherStr = 'foo bar'
 ```
 
-To have single quotes inside the single quoted string, escape the inner single quotes with **\**.
+To have single quotes inside the single quoted string, escape the inner single quotes with **\\**.
 
 ## String concatenation
 

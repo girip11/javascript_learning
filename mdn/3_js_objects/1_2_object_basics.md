@@ -2,9 +2,9 @@
 
 ## Creating objects
 
-Object consists of members each of which are name value pairs. Members are comma separated, while name and value are separated by colon.
+Object consists of members each of which are name value pairs. Members are **,** separated, while name and value are separated by **:**
 
-Objects members can be either a property or a method.
+Objects members can be either a **property** or a **method**.
 
 ```Javascript
 // syntax
@@ -56,11 +56,11 @@ sampleObject[uniqueIdName] = uniqueIdValue;
 
 **this** refers to the current object
 
-Objects communication as **message passing**.
+Objects communication - **message passing**.
 
 ## Constructor function
 
-constructor function is Javascript version of class. This function name follows Pascal case(CamelCase).
+* Constructor function is Javascript version of class. This function name follows Pascal case(or CamelCase).
 
 ```Javascript
 function Person(first, last) {
@@ -73,7 +73,24 @@ function Person(first, last) {
   };
 }
 const person1 = new Person('John');
+
+// properties can also be added on specific objects
+person1.gender = 'male';
+console.log(person1.gender);
+console.dir(person1);
+
+// Iterate through the methods and properties
+for (let p in person1) {
+ console.log(p);
+}
+
 const person2 = new Person('Jane');
+console.log(person2.gender); // undefined
+console.dir(person2);
+// Iterate through the methods and properties
+for (let p in person2) {
+ console.log(p);
+}
 ```
 
 ## Other ways to create object instances

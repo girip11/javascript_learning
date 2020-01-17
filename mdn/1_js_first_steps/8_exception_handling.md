@@ -8,8 +8,6 @@ try {
   // block of code
 } catch(exception1) {
 
-} catch(exception2) {
-
 } finally {
   // cleanup code
 }
@@ -58,7 +56,20 @@ try {
 
 ## Rethrowing the exception
 
-For rethrowing the caught exception inside the **catch** clause or throwing a new exception from **try** clause, use the **throw** statement.
+* For rethrowing the caught exception inside the **catch** clause or throwing a new exception from **try** clause, use the **throw** statement.
+
+* Any expression can be thrown using `throw` statement.
+
+```javascript
+throw 'Invalid argument';
+
+// throw custom object
+throw {
+  toString: function() {
+    return 'Invalid argument'
+  }
+}
+```
 
 ## Return statement inside try block
 
@@ -77,7 +88,9 @@ function exceptionHandling() {
 
     return value;
   } catch(e) {
-    console.log("Inside catch" + e);
+    // Error object has name and message properties
+    console.log(`Inside catch, Error name:${e.name}`);
+    console.log(`Inside catch, Error Message:${e.message}`);
     return 0;
   } finally {
     console.log("Inside finally");
@@ -88,8 +101,27 @@ function exceptionHandling() {
 console.log(exceptionHandling()) // prints 100 as the return value
 ```
 
+## Creating custom exceptions
+
+* Define a custom exception class with `name` and `message` properties
+
+```javascript
+// object contructor
+function CustomException(message) {
+  this.name = 'CustomException';
+  this.message = message;
+}
+
+CustomException.prototype.toString = function() {
+  return `${this.name}: ${this.message}`;
+}
+
+throw new CustomException('Request failed with status code 500');
+```
+
 ---
 
 ## References
 
 * [try..catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+* [Control flow and exception handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/)Control_flow_and_error_handling

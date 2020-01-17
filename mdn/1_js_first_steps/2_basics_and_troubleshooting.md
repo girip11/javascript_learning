@@ -63,10 +63,10 @@ for (let i =1; i < 10; i++) {
 
 ## DOM functions
 
-* form elements have focus method.
-* input elements have value property
-* paragraph element has the text stored in textContent property
-* All HTML elements have style property, which can be used to set the styling for that object.
+* form elements have `focus` method.
+* input elements have `value` property
+* paragraph element has the text stored in `textContent` property
+* All HTML elements have `style` property, which can be used to set the styling for that object.
 
 ```Javascript
 document.querySelector('[CSS SELECTOR]')

@@ -7,6 +7,13 @@
 for(initialization; condition; increment) {
   // statements
 }
+
+arr = [1, 2, 3];
+
+// for/in loop
+for (let i in arr) {
+  console.log(i);
+}
 ```
 
 `break` keyword - exit from the loop
