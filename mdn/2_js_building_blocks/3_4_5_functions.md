@@ -97,9 +97,73 @@ function defaultHandler(response) {
 }
 ```
 
+## Parameter destructing to simulate named or keyword arguments (ES6)
+
+* Function with object as argument
+
+```javascript
+// ES6
+function simpleFunction({name, age}) {
+  console.log(`Name: ${name}, Age: ${age}`);
+}
+
+simpleFunction({name: 'John', age: 25});
+```
+
+* Default values can be assigned to parameter object properties.
+
+```javascript
+function getUrl({host, port= 80, protocol = 'http'}) {
+  return `${protocol}://${host}:${port}`;
+}
+
+getUrl({host: "www.example.com"});
+```
+
+* Default value can also be assigned to the parameter object. With this, the function can be invoked without passing any arguments.
+
+```javascript
+// ES6
+function simpleFunction({name = 'admin', email = 'admin@example.com', age} = {})
+{
+  console.log(`Name: ${name}, email: ${email}`);
+}
+
+simpleFunction();
+```
+
+* Renaming of object property can be done.
+
+```javascript
+function myFunc({someLongPropertyName: prop = 'Default string'} = {}) {
+  console.log(prop);
+}
+
+// Consumers of this function would need to use the long name which could be very descriptive
+// But within the function we can use the property alias.
+myFunc({someLongPropertyName: "Hello" });
+```
+
+* We can make use of ES6 shorthand property naming
+
+```javascript
+// shorthand property naming
+function getComponent({containerClass: className = 'Component'} = {}) {
+  // Here we can avoid {className: className}
+  return React.createElement(SomeComponent, {className});
+}
+
+// Users of the function know exactly what the className does
+getComponent({containerClass: 'Container'});
+```
+
+**NOTE**: Named functions are useful for a good debugging experience, while anonymous functions provides context scoping for easier development. Arrow functions should only be used when functions act as data.
+
 ---
 
 ## References
 
 * [Functions in javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
 * [Building own functions](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function)
+* [Arrow Functions](https://www.freecodecamp.org/news/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26/)
+* [Parameter destructing to simulate named arguments](https://simonsmith.io/destructuring-objects-as-function-parameters-in-es6)

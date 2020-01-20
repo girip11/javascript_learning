@@ -67,6 +67,7 @@ console.log(p1.prototype);
 // p1 contains it in `__proto__`
 console.log(p1.__proto__);
 console.log(p1.__proto__ === p1.constructor.prototype);
+console.log(p1.__proto__ === Person.prototype);
 
 // Or below statement also returns the object's prototype
 Object.getPrototypeOf(p1);

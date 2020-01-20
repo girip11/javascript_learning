@@ -93,6 +93,48 @@ for (let p in person2) {
 }
 ```
 
+## Constructor returning primitive vs object
+
+* Constructor function on invoking with `new` implicitly return an object that inherits from the contructor prototype.
+
+```javascript
+// functions have prototype property which is an object
+function Test() {
+  this.str = 'Hello';
+}
+
+console.log(Test.prototype);
+
+let t = new Test();
+console.log(t.__proto__ === Test.prototype);
+console.log(t.__proto__ === t.constructor.prototype);
+```
+
+* **Constructor functions should not return values explicitly using the `return` keyword**. When a constructor function returns a primitive value (one of string, number, boolean, null, undefined), the newly constructed object is still implicitly returned. But if the constructor function returns an object, then newly **constructed object will not be returned**.
+
+```javascript
+function Constrctor1() {
+  this.str = 'Hello';
+  return 'Hello';
+}
+
+let obj1 = new Constrctor1();
+console.log(obj1.str);
+console.log(typeof(obj1));  //not a string but an object
+
+// Constructor function returning object explicitly
+function Constrctor2() {  
+  this.str = 'Hello';
+  return { name: "John" };
+}
+
+let obj2 = new Constrctor2();
+// type is an object. Object is the explicitly returned object
+console.log(typeof(obj2));
+console.log(obj2.name); //prints "John"
+console.log(obj2.str);  // undefined
+```
+
 ## Other ways to create object instances
 
 ```Javascript
