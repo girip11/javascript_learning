@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Mithril Tutorial</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Girish" />
+    <meta name="description" content="Learning to code using MithrilJS framework" />
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css"> -->
+  </head>
+
+  <body>
+    <script src="../mithril-0.2.5/mithril.min.js" defer></script>
+    <script src="./models/task.js" type="module" defer></script>
+    <script src="./task_client.js" type="module" defer></script>
+    <script src="./view_models/taskvm.js" type="module" defer></script>
+    <script src="./views/todo_table_view.js" type="module" defer></script>
+    <script src="./views/todo_create_task_view.js" type="module" defer></script>
+    <script src="./components/todo_table_component.js" type="module" defer></script>
+    <script src="./components/todo_create_task_component.js" type="module" defer></script>
+    <script src="./components/todo_component.js" type="module" defer></script>
+    <script src="./todo_app.js" type="module" defer></script>
+    <!-- <script type="module">
+      import { TodoTask } from './task.js';
+      import { TaskClient } from './task_client.js';
+
+      // async function getTasks(taskClient) {
+      //   let tasks = await taskClient.getAllTasks();
+      //   return tasks;
+      // }
+
+      let tc = new TaskClient('https://rem-rest-api.herokuapp.com/api');
+      tc.createTask(new TodoTask('Todo task 1')).then(console.log);
+      // tc.createTask(new Task('Todo task 1')).then(_ => {
+      // tc.getAllTasks().then(tasks => tasks.forEach(task => console.log(task)));
+      //   tc.getTask(1)
+      //     .then(console.log)
+      //     .catch(e => console.log(e));
+      // });
+    </script> -->
+  </body>
+</html>
