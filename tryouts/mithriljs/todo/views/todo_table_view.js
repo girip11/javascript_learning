@@ -20,8 +20,9 @@ const todoTableView = class TodoTableView {
       m('input[type="checkbox"]', {
         onchange: m.withAttr('checked', checked => {
           tasks.forEach(task => {
-            // task.status = checked;
-            this._todovm.updateTaskStatus(task.id, checked);
+            if (task.status !== checked) {
+              this._todovm.updateTaskStatus(task.id, checked);
+            }
           });
         }),
         checked: !tasks.some(task => task.status === false),
@@ -29,7 +30,8 @@ const todoTableView = class TodoTableView {
     );
 
     let descriptionColumn = m('th', { scope: 'col' }, 'Description');
-    let headerRow = m('tr', [statusColumn, descriptionColumn]);
+    let deleteColumn = m('td', '');
+    let headerRow = m('tr', [statusColumn, descriptionColumn, deleteColumn]);
     return m('thead', headerRow);
   }
 
@@ -48,10 +50,25 @@ const todoTableView = class TodoTableView {
 
       let descriptionColumn = m('td', task.description);
 
-      return m('tr', [statusColumn, descriptionColumn]);
+      let deleteTaskColumn = m('td', this._getDeleteTaskButton(task));
+
+      return m('tr', [statusColumn, descriptionColumn, deleteTaskColumn]);
     });
 
     return m('tbody', tableRows);
+  }
+
+  _getDeleteTaskButton(task) {
+    return m(
+      'button',
+      {
+        onclick: m.withAttr('id', taskId => {
+          this._todovm.deleteTask(Number.parseInt(taskId));
+        }),
+        id: task.id,
+      },
+      'x',
+    );
   }
 };
 

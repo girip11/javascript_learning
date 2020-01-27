@@ -48,10 +48,10 @@ const todoTaskVM = class TodoTaskVM {
     let taskIndex = this._tasks.findIndex(task => task.id === taskId);
 
     if (taskIndex !== -1) {
-      let deletedTask = this._tasks.splice(taskIndex, 1);
-      this._client
-        .deleteTask(taskId)
-        .then(_ => console.log(`Deleted task successfully: ${deletedTask}`));
+      this._client.deleteTask(taskId).then(() => {
+        let deletedTask = this._tasks.splice(taskIndex, 1);
+        console.log(`Deleted task successfully: ${deletedTask}`);
+      });
     }
   }
 };
