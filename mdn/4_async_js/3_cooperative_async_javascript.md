@@ -4,7 +4,7 @@
 
 ## `setTimeout()`
 
- executes a block of code once after the specified time has elapsed.
+* Executes a block of code **once after the specified time has elapsed**.
 
 Since main thread has to execute the callback on time elapse, the callback is not always guaranteed to be executed exactly after the time interval mentioned.
 
@@ -49,8 +49,8 @@ clearInterval(periodicExecution);
 
 **Note:** `setInterval()` can be implemented using `setTimeout()` by calling it recursively in the callback function.
 
-* This way we can achieve constant time interval between executions.
-* Different interval between execution is possible.
+* This the above tachnique (using `setTimeout` to implement `setInterval`) way we can achieve constant time interval between executions.
+* Different interval between execution is also possible.
 
 ## `requestAnimationFrame()`
 

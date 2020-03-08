@@ -53,6 +53,11 @@ for(let i = 0; i < arr.length; i++) {
   console.log(i);
 }
 
+// for/in syntax
+for (let i in arr) {
+  console.log(i)
+}
+
 //  arrays have lot of methods like filter, flatMap, map that can be used  as in functional programming
 arr.forEach(function(arrItem) {
   console.log(arrItem);

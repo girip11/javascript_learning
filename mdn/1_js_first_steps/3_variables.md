@@ -117,7 +117,7 @@ typeof(undefined) // undefined
 Value cannot change after declaration. Initialization always happens while declaration.
 
 ```Javascript
-// Error.Cant jsut declare constants without initialization
+// Error.Cant declare constants without initialization
 const name;
 
 // Correct

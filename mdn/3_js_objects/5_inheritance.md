@@ -45,9 +45,12 @@ console.log(Teacher.prototype.constructor);
 
 Object.defineProperty(Teacher.prototype, 'constructor', {
   value: Teacher,
-  enumerable: fasle,
+  enumerable: false,
   writable: true
 });
+
+// or simply
+// Teacher.prototype.constructor = Teacher;
 
 // override greeting method in Teacher
 Teacher.prototype.greeting = function() {
@@ -177,6 +180,8 @@ console.log(t.greeting());
 
 **`super`** keyword can be used to call methods on the parent/super class.
 
+**NOTE**: `super()` is only valid in **derived class constructors**. To call a base class method, use the syntax `super.base_class_method_name()`.
+
 ```Javascript
 const Person = {
   greeting: function() {
@@ -201,6 +206,27 @@ Object.setPrototypeOf(Teacher.prototype, Person);
 
 let t = new Teacher('John', 30, 'Male', 'Science');
 console.log(t.greeting());
+```
+
+## Inheritance of static properties and methods
+
+* [Static properties and methods are inherited](https://javascript.info/static-properties-methods#inheritance-of-static-properties-and-methods).
+
+```Javascript
+class Animal {}
+class Rabbit extends Animal {}
+
+// for statics
+console.log(Rabbit.__proto__ === Animal); // true
+
+// for regular methods
+console.log(Rabbit.prototype.__proto__ === Animal.prototype); // true
+
+// Returns the class level properties and methods
+console.log(Object.getOwnPropertyNames(Rabbit));
+
+// Returns instance level properties and methods
+console.log(Object.getOwnPropertyNames(Rabbit.prototype));
 ```
 
 ## Mixins (Abstract subclass)

@@ -85,7 +85,7 @@ todo.Controller = class {
   }
 };
 
-todo.View = class {
+todo.View = class View {
   view(controller) {
     const todoVM = controller.todoVM();
     return m('div', [
@@ -105,7 +105,7 @@ todo.View = class {
         },
         'Add',
       ),
-      this.renderTable(todoVM),
+      View.renderTable(todoVM),
     ]);
   }
 

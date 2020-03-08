@@ -19,8 +19,7 @@ submitButton.addEventListener('click', () => {
 
 ## Promises
 
-New style of async code using promises.
-`fetch()` accepts url and returns a promise object.
+* New style of async code using promises. `fetch()` accepts url and returns a promise object.
 
 ```Javascript
 fetch('https://github.com/girip11/code-repl/blob/master/_config.yml').then((response) => {
@@ -30,18 +29,18 @@ fetch('https://github.com/girip11/code-repl/blob/master/_config.yml').then((resp
 });
 ```
 
-Promises are placed in **event queue**. They run after the main thread completes its processing.
+**NOTE**: Promises are placed in **event queue**. They run after the main thread completes its processing.
 
 ## Promises advantages over callbacks
 
 * Multiple async operations chained using `.then()`
-* called in the order in which they are placed in the event queue.
+* Called in the order in which they are placed in the event queue.
 * Error handling with `.catch()`.
-* avoid inversion control
+* Avoid inversion control
 
 ## Inversion control
 
-Function to which we called with callback function is expected to call the callback function. This is referered to as inversion control.
+**Function to which we called with callback function is expected to call the callback function**. This is referered to as inversion control.
 
 In callbacks, we trust the library function(3rd party library or own library) **to call the callback function exactly once, handle success and failure properly and pass the correct arguments.**
 

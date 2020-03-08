@@ -106,6 +106,18 @@ document.addEventListener('DOMContentLoaded', function() {
 */
 ```
 
+## Exploring javascript objects
+
+```Javascript
+// In firefox
+console.dir(obj)
+console.dir(new String("Hello"));
+
+// In chrome
+dir(obj)
+dir(new String("Hello"));
+```
+
 ---
 
 ## References

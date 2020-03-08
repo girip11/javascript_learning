@@ -2,12 +2,16 @@
 
 ## Single and double quoted strings
 
+* Unlike Ruby (and like Python), there is really [no difference in the end between using single or double quotes](https://staxmanade.com/2018/03/should-i-use-javascript-single-or-double-quotes/), meaning they both represent a string in the end.
+
+* JSON **allows only double quotes.**
+
 ```javascript
 let str = "Hello world"
 let anotherStr = 'foo bar'
 ```
 
-To have single quotes inside the single quoted string, escape the inner single quotes with **\**.
+To have single quotes inside the single quoted string, escape the inner single quotes with **\\**.
 
 ## String concatenation
 

@@ -1,6 +1,6 @@
 # Working with JSON
 
-JSON - JavaScript Object Notation. data format, contains only properties. Only double quotes can be used. Unlike javascript object, property names should be quoted.
+JSON - JavaScript Object Notation. It is a data format, contains only the object properties and not the methods. **Only double quotes can be used**. Unlike javascript object, **property names should be quoted**.
 
 ## JSON structure
 

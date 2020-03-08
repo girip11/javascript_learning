@@ -4,7 +4,7 @@ Introduced as part of ECMAScript 2017. For older browser support, use BabelJS to
 
 ## Async keyword
 
-Async - turns a function to return promise. When async function returns a value, the promise is resolved with the return value.When exception is thrown inside the async function, promise is rejected with the thrown value.
+Async - **turns a function to return promise**. When async function returns a value, the promise is resolved with the return value.When exception is thrown inside the async function, promise is rejected with the thrown value.
 
 ```Javascript
 function sayHello() {
@@ -23,7 +23,7 @@ console.log(typeof(sayHelloAsync));
 sayHelloAsync().then(value => console.log(value));
 
 // arrow function can also be used
-let hello = async  () => {
+let hello = async () => {
   return "Hello";
 }
 
@@ -32,7 +32,9 @@ hello().then(console.log)
 
 ## `await` keyword
 
-**used and works only inside any async function**. pauses the code execution on that line until the promise is fulfilled.
+> The real advantage of async functions becomes apparent when you combine it with the await keyword. This can be put in front of any async promise-based function to pause your code on that line until the promise fulfills, then return the resulting value. In the meantime, other code that may be waiting for a chance to execute gets to do so.
+
+**used and works only inside any async function**. Pauses the code execution on that line until the promise is fulfilled.
 
 ```Javascript
 async function sayHello() {
