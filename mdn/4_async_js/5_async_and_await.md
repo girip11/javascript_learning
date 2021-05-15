@@ -32,7 +32,7 @@ hello().then(console.log)
 
 ## `await` keyword
 
-> The real advantage of async functions becomes apparent when you combine it with the await keyword. This can be put in front of any async promise-based function to pause your code on that line until the promise fulfills, then return the resulting value. In the meantime, other code that may be waiting for a chance to execute gets to do so.
+> The real advantage of `async` functions becomes apparent when you combine it with the `await` keyword. This can be put in front of any async promise-based function to pause your code on that line until the promise fulfills, then return the resulting value. In the meantime, other code that may be waiting for a chance to execute gets to do so.
 
 **used and works only inside any async function**. Pauses the code execution on that line until the promise is fulfilled.
 
