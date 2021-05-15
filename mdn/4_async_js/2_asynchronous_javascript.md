@@ -44,7 +44,9 @@ fetch('https://github.com/girip11/code-repl/blob/master/_config.yml').then((resp
 
 In callbacks, we trust the library function(3rd party library or own library) **to call the callback function exactly once, handle success and failure properly and pass the correct arguments.**
 
-In case of promises, inversion of control does not happen. Promises can be in either of the three states
+In case of promises, a function(calling) calls an asynchronous function(called) and the called function returns a promise and the calling function operates on that promise. This is how inversion control is avoided when using promises.
+
+Promises can be in either of the three states
 
 * Pending - can transition to either fulfilled or rejected
 * Fulfilled - no further state transition. should have a value which shouldnt change

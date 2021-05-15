@@ -49,6 +49,14 @@ p.then(value => {
 > * returns an already rejected promise, the promise returned by then gets rejected with that promise's value as its value.
 > * returns another pending promise object, the resolution/rejection of the promise returned by then will be subsequent to the resolution/rejection of the promise returned by the handler. Also, the resolved value of the promise returned by then will be the same as the resolved value of the promise returned by the handler.
 
+## [Promise `then` vs `catch`](https://www.codingame.com/playgrounds/347/javascript-promises-mastering-the-asynchronous/the-catch-method)
+
+* `Promise.then` can accept callbacks for both fulfillment as well as rejection, then do we need to use `catch` method at all?
+
+* Its a good practice to always use `catch` because, if the first promise is fulfilled, when the subsequent `then` clause throws some exception, that can also be handled by the `catch` clause.
+
+![`then(onfulfilled, onrejected)` vs `then(fulfilled).catch(rejected)`](./then_vs_catch.png)
+
 ## Promise Example
 
 ```Javascript
